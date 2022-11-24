@@ -48,6 +48,14 @@ export default class HomeTemplate extends Component {
           } to="/reactlifecycle" >
             Lifecycle
           </NavLink>
+          <NavLink className={({ isActive }) =>
+            isActive ? "nav-link bg-white text-dark" : "nav-link"
+          } to="/demoredux" >
+            demoredux
+          </NavLink>
+          <NavLink className={({ isActive }) => isActive ? "nav-link bg-white text-dark" : "nav-link"} to="/demogame" >
+            demogame
+          </NavLink>
           
         </header>
         <div className="content" style={{ minHeight: "75vh" }}>

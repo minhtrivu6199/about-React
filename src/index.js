@@ -22,25 +22,35 @@ import Page404 from "./pages/Page404/Page404";
 import BaiTapGioHang from "./pages/BaiTapGioHang/BaiTapGioHang";
 import ReactForm from "./pages/Form/ReactForm";
 import ReactLifeCycle from "./pages/ReactLifeCycle/ReactLifeCycle";
+import DemoRedux from "./pages/DemoRedux/DemoRedux";
+
+//Cấu hình redux store
+import { Provider } from "react-redux";
+import { store } from "./redux/configStore";
+import BaiTapGame from "./pages/DemoRedux/BaiTapGame/BaiTapGame";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <>
-    <BrowserRouter>
-      <Routes>
-        <Route path="" element={<HomeTemplate />}>
-          <Route index element={<Home />}></Route>
-          <Route path="home" element={<Home />}></Route>
-          <Route path="register" element={<Register />}></Route>
-          <Route path="login" element={<Login />}></Route>
-          <Route path="btgiohang" element={<BaiTapGioHang />}></Route>
-          <Route path="form" element={<ReactForm />}></Route>
-          <Route path="reactlifecycle" element={<ReactLifeCycle />}></Route>
-          {/* <Route path="*" element={<Page404 />}></Route> */}
-          <Route path="*" element={<Navigate to="" />}></Route>
-        </Route>
-      </Routes> 
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<HomeTemplate />}>
+            <Route index element={<Home />}></Route>
+            <Route path="home" element={<Home />}></Route>
+            <Route path="register" element={<Register />}></Route>
+            <Route path="login" element={<Login />}></Route>
+            <Route path="btgiohang" element={<BaiTapGioHang />}></Route>
+            <Route path="form" element={<ReactForm />}></Route>
+            <Route path="reactlifecycle" element={<ReactLifeCycle />}></Route>
+            <Route path="demoredux" element={<DemoRedux />}></Route>
+            <Route path="demogame" element={<BaiTapGame />}></Route>
+            {/* <Route path="*" element={<Page404 />}></Route> */}
+            <Route path="*" element={<Navigate to="" />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </>
 );
